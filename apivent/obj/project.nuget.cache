@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "i9mXc5sB7kFRwb7udt2xKI/2igocx02hTwPygSGJaKB6TXY51cyhJts28lGXp2Y7aBuPLXBKK/bJmXWvZwZlcw==",
+  "dgSpecHash": "qrk0qhbkbC6sWR/jcosZYjMgI1KM2bEOdjC513utAZ31jXZlbTMeiJXe3rC9UNsTyPismUdQ0WytGeE28HlLgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\apivent.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.7\\microsoft.entityframeworkcore.design.3.1.7.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.7\\microsoft.entityframeworkcore.relational.3.1.7.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.7\\microsoft.entityframeworkcore.sqlserver.3.1.7.nupkg.sha512",
+    "C:\\Users\\juan\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.7\\microsoft.entityframeworkcore.tools.3.1.7.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.7\\microsoft.extensions.caching.abstractions.3.1.7.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.7\\microsoft.extensions.caching.memory.3.1.7.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.7\\microsoft.extensions.configuration.3.1.7.nupkg.sha512",
