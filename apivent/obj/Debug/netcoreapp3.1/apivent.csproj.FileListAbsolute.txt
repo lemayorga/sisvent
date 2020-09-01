@@ -59,3 +59,4 @@ C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.dll
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.pdb
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.genruntimeconfig.cache
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\dotnet-ef.dll
