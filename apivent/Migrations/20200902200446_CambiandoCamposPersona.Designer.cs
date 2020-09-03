@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apivent.Models;
 
 namespace apivent.Migrations
 {
     [DbContext(typeof(VentContext))]
-    partial class VentContextModelSnapshot : ModelSnapshot
+    [Migration("20200902200446_CambiandoCamposPersona")]
+    partial class CambiandoCamposPersona
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
