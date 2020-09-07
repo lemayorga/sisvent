@@ -4,9 +4,10 @@ namespace apivent.Models
 {
     public class VentContext : DbContext
     {
+        public VentContext() : base() { }
         public VentContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Persona> Personas { get; set; }
+        public virtual DbSet<Persona> Personas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

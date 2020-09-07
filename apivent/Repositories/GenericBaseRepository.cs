@@ -13,6 +13,12 @@ namespace apivent.Repositories
         internal VentContext context;
         internal DbSet<TEntity> dbSet;
 
+        public GenericBaseRepository()
+        {
+            this.context = new VentContext();
+            this.dbSet = context.Set<TEntity>();
+        }
+
         public GenericBaseRepository(VentContext context)
         {
             this.context = context;

@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using apivent.Models;
 using Microsoft.EntityFrameworkCore;
+using apivent.Repositories;
+using apivent.Services;
+using apivent.Services.Interfaces;
 
 namespace apivent
 {
@@ -28,6 +31,10 @@ namespace apivent
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<VentContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));             
+            services.AddScoped<VentContext>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
+            services.AddScoped<IPersonaRepository, PersonaServices>();
+        
             services.AddControllers();
         }
 
