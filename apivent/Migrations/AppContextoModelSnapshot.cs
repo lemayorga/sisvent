@@ -2,17 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using apivent.Models;
+using apivent.Infrastructure.Context;
 
 namespace apivent.Migrations
 {
-    [DbContext(typeof(VentContext))]
-    [Migration("20200901221003_MigracionInicial")]
-    partial class MigracionInicial
+    [DbContext(typeof(AppContexto))]
+    partial class AppContextoModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,7 +18,7 @@ namespace apivent.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("apivent.Models.Persona", b =>
+            modelBuilder.Entity("apivent.Infrastructure.Models.Persona", b =>
                 {
                     b.Property<int>("personaId")
                         .ValueGeneratedOnAdd()
@@ -28,10 +26,18 @@ namespace apivent.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("apellidos")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("nombres")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("tipoPersona")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(1)")
+                        .HasDefaultValue("N");
 
                     b.HasKey("personaId");
 

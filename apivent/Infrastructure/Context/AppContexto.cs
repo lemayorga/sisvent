@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using apivent.Infrastructure.Models;
 
-namespace apivent.Models
+namespace apivent.Infrastructure.Context
 {
-    public class VentContext : DbContext
+    public class AppContexto : DbContext
     {
-        public VentContext(DbContextOptions options) : base(options) { }
-
-        public DbSet<Persona> Personas { get; set; }
+        public AppContexto() : base() { }
+        public AppContexto(DbContextOptions options) : base(options) { }        
+        public virtual DbSet<Persona> Personas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -17,6 +18,5 @@ namespace apivent.Models
                 entidad.Property(propiedad => propiedad.tipoPersona).HasColumnType("char(1)").IsRequired().HasDefaultValue("N");
             });
         }
-
     }
 }

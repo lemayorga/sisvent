@@ -4,16 +4,16 @@ using System.Linq;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using apivent.Models;
+using apivent.Infrastructure.Context;
 
 namespace apivent.Repositories
 {
     public class GenericBaseRepository<TEntity>  : IGenericRepository<TEntity> where TEntity : class 
     {
-        internal VentContext context;
+        internal AppContexto context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericBaseRepository(VentContext context)
+        public GenericBaseRepository(AppContexto context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();

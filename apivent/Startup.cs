@@ -10,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using apivent.Models;
 using Microsoft.EntityFrameworkCore;
+using apivent.Infrastructure.Context;
 
 namespace apivent
 {
@@ -27,7 +27,7 @@ namespace apivent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<VentContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));             
+            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));             
             services.AddControllers();
         }
 

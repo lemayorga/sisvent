@@ -1,28 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\apivent.csproj": {}
+    "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\apivent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\apivent.csproj": {
+    "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\apivent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\apivent.csproj",
+        "projectUniqueName": "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\apivent.csproj",
         "projectName": "apivent",
-        "projectPath": "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\apivent.csproj",
+        "projectPath": "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\apivent.csproj",
         "packagesPath": "C:\\Users\\juan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juan\\Documents\\proyectos\\github\\sisvent\\apivent\\obj\\",
+        "outputPath": "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

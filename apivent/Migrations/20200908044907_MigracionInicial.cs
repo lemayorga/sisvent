@@ -12,8 +12,9 @@ namespace apivent.Migrations
                 {
                     personaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nombres = table.Column<string>(nullable: true),
-                    apellidos = table.Column<string>(nullable: true)
+                    nombres = table.Column<string>(type: "varchar(100)", nullable: false),
+                    apellidos = table.Column<string>(type: "varchar(100)", nullable: false),
+                    tipoPersona = table.Column<string>(type: "char(1)", nullable: false, defaultValue: "N")
                 },
                 constraints: table =>
                 {
