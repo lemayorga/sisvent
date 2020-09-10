@@ -21,5 +21,6 @@ namespace apivent.Application.Interfaces
         void Delete(object id);
         void Delete(T entity);
         void DeleteRange(IEnumerable<T> entities);
+        int Save();
     }
 }
