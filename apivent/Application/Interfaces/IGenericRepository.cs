@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace apivent.Repositories
+namespace apivent.Application.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {

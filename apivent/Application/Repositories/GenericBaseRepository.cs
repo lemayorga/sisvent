@@ -5,8 +5,9 @@ using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using apivent.Infrastructure.Context;
+using apivent.Application.Interfaces;
 
-namespace apivent.Repositories
+namespace apivent.Application.Repositories
 {
     public class GenericBaseRepository<TEntity>  : IGenericRepository<TEntity> where TEntity : class 
     {

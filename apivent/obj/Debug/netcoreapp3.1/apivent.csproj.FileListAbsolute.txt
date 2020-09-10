@@ -122,3 +122,8 @@ F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.cs
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\staticwebassets\apivent.StaticWebAssets.Manifest.cache
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\staticwebassets\apivent.StaticWebAssets.xml
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.genruntimeconfig.cache
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.MvcApplicationPartsAssemblyInfo.cs
