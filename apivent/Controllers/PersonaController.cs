@@ -22,7 +22,7 @@ namespace apivent.Controllers
         
         [HttpGet]
         [Route("{tipo}")]
-        public IEnumerable<Persona> GetTiposPersonas(string tipo) => repoPersona.TipoPersonas(tipo);
+        public IEnumerable<Persona> GetTiposPersonas([FromRoute]string tipo) => repoPersona.TipoPersonas(tipo);
 
     }
 }

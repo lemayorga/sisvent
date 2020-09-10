@@ -13,14 +13,17 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using apivent.Infrastructure.Context;
 using Swashbuckle.AspNetCore.Swagger;
+using apivent.Application.Interfaces;
+using apivent.Services;
+using apivent.Application.Repositories;
 
 namespace apivent
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration) 
         {
-            Configuration = configuration;
+            this.Configuration = configuration;               
         }
 
         public IConfiguration Configuration { get; }
@@ -28,12 +31,15 @@ namespace apivent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));             
+            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-            c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
+            services.AddScoped<IPersonaService, PersonaServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +50,9 @@ namespace apivent
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); 
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
