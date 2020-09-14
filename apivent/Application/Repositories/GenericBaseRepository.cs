@@ -4,16 +4,17 @@ using System.Linq;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using apivent.Models;
+using apivent.Infrastructure.Context;
+using apivent.Application.Interfaces;
 
-namespace apivent.Repositories
+namespace apivent.Application.Repositories
 {
     public class GenericBaseRepository<TEntity>  : IGenericRepository<TEntity> where TEntity : class 
     {
-        internal VentContext context;
+        internal AppContexto context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericBaseRepository(VentContext context)
+        public GenericBaseRepository(AppContexto context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
@@ -100,9 +101,9 @@ namespace apivent.Repositories
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
-        public void Save()
+        public int Save()
         {
-            context.SaveChanges();
+            return context.SaveChanges();
         }
 
         public void Dispose()

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using apivent.Models;
+using apivent.Infrastructure.Context;
 
 namespace apivent.Migrations
 {
-    [DbContext(typeof(VentContext))]
-    [Migration("20200902200446_CambiandoCamposPersona")]
-    partial class CambiandoCamposPersona
+    [DbContext(typeof(AppContexto))]
+    [Migration("20200908044907_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace apivent.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("apivent.Models.Persona", b =>
+            modelBuilder.Entity("apivent.Infrastructure.Models.Persona", b =>
                 {
                     b.Property<int>("personaId")
                         .ValueGeneratedOnAdd()

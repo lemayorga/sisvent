@@ -1,32 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
+using apivent.Application.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using apivent.Models;
-using apivent.Services;
+using apivent.Infrastructure.Models;
+using apivent.Application.Repositories;
 
 namespace apivent.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PersonaController : ControllerBase
+    public class PersonaController : ControllerBaseRepository<Persona> 
     {
-        private readonly PersonaServices personaLogic;
-        
-        public PersonaController(PersonaServices svLogic)
+        private readonly IPersonaService repoPersona;  
+
+        public PersonaController(IPersonaService _repoPersona) :base(_repoPersona)
         {
-            personaLogic = svLogic;
+            repoPersona = _repoPersona;
         }
 
         [HttpGet]
-        public IEnumerable<Persona> Get()
-        {
-            return  personaLogic.Get();
-        }
+        [Route("tipo/{tipo}")]
+        public IEnumerable<Persona> GetTiposPersonas([FromRoute]string tipo) => repoPersona.TipoPersonas(tipo);
 
-        [HttpGet]
-        public IEnumerable<Persona> TipoPersonas(string tipo)
-        {
-            return  personaLogic.TipoPersonas(tipo);
-        }
     }
 }
+

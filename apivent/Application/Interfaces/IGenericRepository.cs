@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace apivent.Repositories
+namespace apivent.Application.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
@@ -21,5 +21,6 @@ namespace apivent.Repositories
         void Delete(object id);
         void Delete(T entity);
         void DeleteRange(IEnumerable<T> entities);
+        int Save();
     }
 }
