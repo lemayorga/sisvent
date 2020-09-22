@@ -14,8 +14,6 @@ import Footer from './layouts/Footer';
 import Header from './layouts/Header';
 import SideBar from './layouts/SideBar';
 import CustomTheme from './layouts/CustomTheme';	
-import PageNotFoundPage from './pages/status/PageNotFoundPage';
-
 
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './routers/AppRouter';
@@ -23,11 +21,14 @@ import { Provider } from 'react-redux';
 import store from './redux/stores/configStores';
 
 
+import Login from './pages/authentication/Login';
+
 function App() {
     return (
 		<Provider store={store} > 
 			<BrowserRouter>
-				<Layout />
+				{/* <Layout /> */}
+				<Login />
 			</BrowserRouter>   
 		</Provider>
 	);

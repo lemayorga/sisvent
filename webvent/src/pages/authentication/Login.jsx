@@ -1,60 +1,72 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
  
 const Login = () => {
+    
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
   };
 
   return (
-    <Form
+
+    <div  style={{ height: "100vh" }}  className="d-flex justify-content-center align-items-center">
+      <div style={{ width: 300 }}>
+        <h1 className="text-center">Sign in</h1>
+        <Form
       name="normal_login"
       className="login-form"
-      initialValues={{ remember: true }}
+      initialValues={{
+        remember: true,
+      }}
       onFinish={onFinish}
     >
-      <Form.Item name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Escriba su usuario',
-            },
-          ]}
-       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Usuario" />
+      <Form.Item
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
       </Form.Item>
-      <Form.Item name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Escriba su contraseña',
-            },
-          ]}
-       >
-        <Input  prefix={<LockOutlined className="site-form-item-icon" />}
-              type="password"
-              placeholder="Contraseña" />
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
       </Form.Item>
       <Form.Item>
         <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Recordar</Checkbox>
+          <Checkbox>Remember me</Checkbox>
         </Form.Item>
 
         <a className="login-form-forgot" href="">
-          Olvide mi contraseña
+          Forgot password
         </a>
       </Form.Item>
 
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Iniciar sesión
+          Log in
         </Button>
-        o <a href="">registrarme</a>
+        Or <a href="">register now!</a>
       </Form.Item>
     </Form>
+
+      </div>
+    </div>
   );
 };
 
