@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./assets/css/atlantis.min.css";
+import './assets/css/demo.css';
+import './assets/css/customer.css';
 
+import 'bootstrap';
+import './assets/css/fonts.css';
+import './assets/js/atlantis.js';
+import './assets/js/setting_demo.js';
+import 'antd/dist/antd.css';
+
+import React from 'react';	
+import Footer from './layouts/Footer';
+import Header from './layouts/Header';
+import SideBar from './layouts/SideBar';
+import CustomTheme from './layouts/CustomTheme';	
+
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './routers/AppRouter';
+import { Provider } from 'react-redux';
+import store from './redux/stores/configStores';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+		<Provider store={store} > 
+			<BrowserRouter>
+				<div className="wrapper">
+					<Header />
+					<SideBar />
+					<div className="main-panel">
+						<div className="content">
+							<div className="page-inner">
+								{/* <div className="page-header"></div> */}
+								<AppRouter />
+							</div>		
+						</div>
+						<Footer />
+					</div>
+					<CustomTheme />
+				</div>
+			</BrowserRouter>   
+		</Provider>
+	);
 }
 
 export default App;

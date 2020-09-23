@@ -2,3 +2,9 @@
 .nav-item  a > p  {
      margin-left:  15px !important;
 } */
+
+.main-header {
+    z-index: 101 !important;
+}
+
+
