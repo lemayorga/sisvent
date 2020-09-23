@@ -7,24 +7,24 @@ export default function Footer(){
             <nav className="pull-left">
                 <ul className="nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="https://www.themekita.com">
+                        <a className="nav-link">
                             ThemeKita
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">
+                        <a className="nav-link">
                             Help
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">
+                        <a className="nav-link">
                             Licenses
                         </a>
                     </li>
                 </ul>
             </nav>
             <div className="copyright ml-auto">
-                2018, made with <i className="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+                2018, made with <i className="fa fa-heart heart text-danger"></i> by <a>ThemeKita</a>
             </div>				
         </div>
     </footer>

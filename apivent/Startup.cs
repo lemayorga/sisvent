@@ -21,6 +21,8 @@ namespace apivent
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration) 
         {
             this.Configuration = configuration;               
@@ -31,6 +33,14 @@ namespace apivent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
+            {
+                builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .WithOrigins("http://localhost:3000");
+            }));
+
             services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -53,6 +63,8 @@ namespace apivent
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            app.UseCors(MyAllowSpecificOrigins);
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
