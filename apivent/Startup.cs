@@ -16,6 +16,9 @@ using Swashbuckle.AspNetCore.Swagger;
 using apivent.Application.Interfaces;
 using apivent.Services;
 using apivent.Application.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace apivent
 {
@@ -33,6 +36,24 @@ namespace apivent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // CONFIGURACIÓN DEL SERVICIO DE AUTENTICACIÓN JWT
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => 
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["JWT:Issuer"],
+                        ValidAudience = Configuration["JWT:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(Configuration["JWT:ClaveSecreta"])
+                        )
+                    };
+                });
 
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
@@ -73,6 +94,8 @@ namespace apivent
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication(); // AÑADIMOS EL MIDDLEWARE DE AUTENTICACIÓN DE USUARIOS AL PIPELINE DE ASP.NET CORE
 
             app.UseAuthorization();
 
