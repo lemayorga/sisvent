@@ -15,7 +15,6 @@ namespace apivent.Services
 
         public IEnumerable<Persona> TipoPersonas(string tipo)
         {
-            
             IEnumerable<Persona> tipoPersonas = base.Get(filter: x => x.tipoPersona == tipo);
             return tipoPersonas;
         }

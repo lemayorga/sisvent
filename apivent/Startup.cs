@@ -19,6 +19,8 @@ using apivent.Application.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using apivent.Application.Interfaces.Securiry;
+using apivent.Services.Security;
 
 namespace apivent
 {
@@ -71,6 +73,8 @@ namespace apivent
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
             services.AddScoped<IPersonaService, PersonaServices>();
+            services.AddScoped<ISecurityService, SecurityServices>();
+            services.AddScoped<ISecurityTokenService, SecurityTokenServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
