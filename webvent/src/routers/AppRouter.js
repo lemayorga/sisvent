@@ -12,7 +12,6 @@ import HomePage from '../pages/HomePage';
 import PersonasPage from '../pages/PersonasPage';
 import Login from '../pages/authentication/Login';
 import Dashboard from '../pages/Dashboard';
-
 import PageNotFoundPage from '../pages/status/PageNotFoundPage';
 
  const AppRouter = () =>( 

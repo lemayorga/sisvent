@@ -15,6 +15,8 @@ import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
 import store from './redux/stores/configStores';
 
+import Login from './pages/authentication/Login';
+
 function App() {
    return (
 		<Provider store={store} > 

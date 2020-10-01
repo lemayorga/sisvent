@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
  
-
 import {
   useHistory,
   useLocation
@@ -26,7 +25,6 @@ const Login = (props) => {
     });
   };
 
-  
   return (
 
     <div  style={{ height: "100vh" }}  className="d-flex justify-content-center align-items-center">
@@ -75,7 +73,6 @@ const Login = (props) => {
           Olvido su contraseña
         </a>
       </Form.Item>
-
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button" 
        >
@@ -83,12 +80,10 @@ const Login = (props) => {
         </Button> &nbsp;&nbsp;
          o <a href="">registrarse!</a>
       </Form.Item>
-    </Form>
-
+    </Form> 
       </div>
     </div>
   );
-};
-
+}
 
 export default Login;

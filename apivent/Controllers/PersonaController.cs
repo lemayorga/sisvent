@@ -3,9 +3,11 @@ using apivent.Application.Interfaces;
 using System.Collections.Generic;
 using apivent.Infrastructure.Models;
 using apivent.Application.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace apivent.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class PersonaController : ControllerBaseRepository<Persona> 
