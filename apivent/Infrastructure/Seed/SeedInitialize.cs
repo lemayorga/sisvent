@@ -18,10 +18,10 @@ namespace apivent.Infrastructure.Seed
                 entidad.Property(propiedad => propiedad.tipoPersona).HasColumnType("char(1)").IsRequired().HasDefaultValue("N");
             });
 
-            modelBuilder.Entity<Usuarios>(entidad =>
+            modelBuilder.Entity<Usuario>(entidad =>
             {
-                entidad.HasKey(propiedad => propiedad.userId);
-                entidad.Property(propiedad => propiedad.userId).UseIdentityColumn();
+                // entidad.HasKey(propiedad => propiedad.usuarioId);
+                // entidad.Property(propiedad => propiedad.usuarioId).UseIdentityColumn();
                 entidad.Property(propiedad => propiedad.userName).HasColumnType("varchar(100)").IsRequired().HasMaxLength(100).IsUnicode();
                 entidad.Property(propiedad => propiedad.password).HasColumnType("varchar(800)").IsRequired();
                 entidad.Property(propiedad => propiedad.passwordKey).HasColumnType("varchar(800)").IsRequired();
@@ -31,9 +31,9 @@ namespace apivent.Infrastructure.Seed
                 entidad.Property(propiedad => propiedad.fCreacion).HasColumnType("datetime").IsRequired().HasDefaultValueSql("getdate()");
                 entidad.Property(propiedad => propiedad.estado).HasDefaultValue(true).IsRequired();
             }); 
-                var usuario = new Usuarios
+                var usuario = new Usuario
                 {
-                    userId = 1,
+                    usuarioId = 1,
                     userName = "admin",
                     nombres = "administrador",
                     apellidos = "administrador",
@@ -42,7 +42,7 @@ namespace apivent.Infrastructure.Seed
                 };
 
                 usuario = PasswordHelper.EncodeNewPassword(usuario);
-                modelBuilder.Entity<Usuarios>().HasData(usuario);
+                modelBuilder.Entity<Usuario>().HasData(usuario);
         }
     }
 }

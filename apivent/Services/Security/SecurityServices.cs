@@ -8,10 +8,10 @@ using apivent.Application.DTOs.Security;
 
 namespace apivent.Services.Security
 {
-    public class SecurityServices :  GenericBaseRepository<Usuarios>, ISecurityService
+    public class SecurityServices :  GenericBaseRepository<Usuario>, ISecurityService
     {
         public SecurityServices(AppContexto context) : base(context) { }
-        public void Registration(Usuarios newUsuario)  
+        public void Registration(Usuario newUsuario)  
         {  
             newUsuario = PasswordHelper.EncodeNewPassword(newUsuario); 
         }

@@ -5,7 +5,7 @@ namespace apivent.Application.Interfaces.Securiry
 {
     public interface ISecurityService
     {
-        void Registration(Usuarios newUsuario);
+        void Registration(Usuario newUsuario);
         UsuarioInfo Autentication(string usuario, string contrasena);
     }
 }

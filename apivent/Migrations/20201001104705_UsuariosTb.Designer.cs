@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apivent.Infrastructure.Context;
 
 namespace apivent.Migrations
 {
     [DbContext(typeof(AppContexto))]
-    partial class AppContextoModelSnapshot : ModelSnapshot
+    [Migration("20201001104705_UsuariosTb")]
+    partial class UsuariosTb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,13 +30,11 @@ namespace apivent.Migrations
 
                     b.Property<string>("apellidos")
                         .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("nombres")
                         .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("tipoPersona")
                         .IsRequired()
@@ -55,62 +55,32 @@ namespace apivent.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("apellidos")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("correo")
-                        .IsRequired()
-                        .HasColumnType("varchar(80)")
-                        .HasMaxLength(80)
-                        .IsUnicode(true);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("estado")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("fCreacion")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("nombres")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("varchar(800)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("passwordKey")
-                        .IsRequired()
-                        .HasColumnType("varchar(800)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userName")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100)
-                        .IsUnicode(true);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("usuarioId");
 
                     b.ToTable("Usuarios");
-
-                    b.HasData(
-                        new
-                        {
-                            usuarioId = 1,
-                            apellidos = "administrador",
-                            correo = "admin@admin.com",
-                            estado = false,
-                            fCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            nombres = "administrador",
-                            password = "C3-84-CB-DA-11-5B-68-D0-F5-67-51-73-EE-13-C6-3D",
-                            passwordKey = "EQ987C6cKn",
-                            userName = "admin"
-                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -5,7 +5,7 @@ namespace apivent.Application.Helpers
 {
     public class PasswordHelper
     {
-        public static Usuarios EncodeNewPassword(Usuarios usuario)
+        public static Usuario EncodeNewPassword(Usuario usuario)
         {
            usuario.passwordKey = CryptString.GeneratePassword();
            string passwordEncode = CryptString.EncodePassword(usuario.password, usuario.passwordKey); 
