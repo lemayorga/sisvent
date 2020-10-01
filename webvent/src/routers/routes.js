@@ -2,7 +2,7 @@
 const routes = {
     home: "/",
     personas: "/personas",
-    // persona_add: "/personas-add",
-    // personas_edit: "/personas/:personaId/edit"
+    login: "/authentication",
+    dashboard: "/dashboard"
 }
 export default routes;
