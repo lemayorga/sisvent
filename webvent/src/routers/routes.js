@@ -2,6 +2,7 @@
 const routes = {
     home: "/",
     personas: "/personas",
-    login: "/authentication"
+    login: "/authentication",
+    dashboard: "/dashboard"
 }
 export default routes;

@@ -10,25 +10,16 @@ import './assets/js/setting_demo.js';
 import 'antd/dist/antd.css';
 
 import React from 'react';	
-import Footer from './layouts/Footer';
-import Header from './layouts/Header';
-import SideBar from './layouts/SideBar';
-import CustomTheme from './layouts/CustomTheme';	
-
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
 import store from './redux/stores/configStores';
 
-
-import Login from './pages/authentication/Login';
-
 function App() {
-    return (
+   return (
 		<Provider store={store} > 
 			<BrowserRouter>
-				{/* <Layout /> */}
-				<Login />
+				<AppRouter />
 			</BrowserRouter>   
 		</Provider>
 	);
@@ -36,19 +27,3 @@ function App() {
 
 export default App;
 
-
-const Layout = ()  => (
-		<div className="wrapper">
-			<Header />
-			<SideBar />
-			<div className="main-panel">
-				<div className="content">
-					<div className="page-inner">
-						<AppRouter />
-					</div>		
-				</div>
-				<Footer />
-			</div>
-			<CustomTheme />
-		</div>
-	)

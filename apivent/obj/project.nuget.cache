@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "iJhFwN/uWOuwxnr5p9E2ET9xyaJS+ixPogitzH/A7kO3Hr7YkG5vNQUL2Nbd/p4QxC4Jrr4K2ulIyDCtz9+Jbg==",
+  "dgSpecHash": "+jgP9I0FAiebbmL3DNYeflpJxIGBP3fuyeI7jlBpFzSz6OrQtFF9KmofLx2s+bfQehkBMm2rcTqPSF3u6X6F7w==",
   "success": true,
   "projectFilePath": "F:\\cursos_practicas\\proyectos\\sisvent\\apivent\\apivent.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\juan\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\juan\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",

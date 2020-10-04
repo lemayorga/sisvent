@@ -16,11 +16,6 @@ using Swashbuckle.AspNetCore.Swagger;
 using apivent.Application.Interfaces;
 using apivent.Services;
 using apivent.Application.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using apivent.Application.Interfaces.Securiry;
-using apivent.Services.Security;
 
 namespace apivent
 {
@@ -39,24 +34,6 @@ namespace apivent
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // CONFIGURACIÓN DEL SERVICIO DE AUTENTICACIÓN JWT
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options => 
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["JWT:Issuer"],
-                        ValidAudience = Configuration["JWT:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(Configuration["JWT:ClaveSecreta"])
-                        )
-                    };
-                });
-
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
                 builder.AllowAnyMethod()
@@ -73,8 +50,6 @@ namespace apivent
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
             services.AddScoped<IPersonaService, PersonaServices>();
-            services.AddScoped<ISecurityService, SecurityServices>();
-            services.AddScoped<ISecurityTokenService, SecurityTokenServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,8 +73,6 @@ namespace apivent
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthentication(); // AÑADIMOS EL MIDDLEWARE DE AUTENTICACIÓN DE USUARIOS AL PIPELINE DE ASP.NET CORE
 
             app.UseAuthorization();
 
