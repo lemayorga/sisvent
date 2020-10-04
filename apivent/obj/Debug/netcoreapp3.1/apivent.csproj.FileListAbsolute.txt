@@ -127,3 +127,5 @@ F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\staticweba
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.dll
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.pdb
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.genruntimeconfig.cache
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Properties\launchSettings copy.json
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -10,8 +10,8 @@ using apivent.Infrastructure.Context;
 namespace apivent.Migrations
 {
     [DbContext(typeof(AppContexto))]
-    [Migration("20200926233206_TablaUsuarios")]
-    partial class TablaUsuarios
+    [Migration("20201001110326_UsuariosTbIn")]
+    partial class UsuariosTbIn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,13 +49,11 @@ namespace apivent.Migrations
                     b.ToTable("Personas");
                 });
 
-            modelBuilder.Entity("apivent.Infrastructure.Models.Security.Usuarios", b =>
+            modelBuilder.Entity("apivent.Infrastructure.Models.Security.Usuario", b =>
                 {
-                    b.Property<int>("userId")
+                    b.Property<int>("usuarioId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("apellidos")
@@ -98,21 +96,21 @@ namespace apivent.Migrations
                         .HasMaxLength(100)
                         .IsUnicode(true);
 
-                    b.HasKey("userId");
+                    b.HasKey("usuarioId");
 
                     b.ToTable("Usuarios");
 
                     b.HasData(
                         new
                         {
-                            userId = 1,
+                            usuarioId = 1,
                             apellidos = "administrador",
                             correo = "admin@admin.com",
                             estado = false,
                             fCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             nombres = "administrador",
-                            password = "92-2C-B3-58-50-36-26-DF-9A-03-17-8C-C8-C3-A7-56",
-                            passwordKey = "K6Pb3CkUAm",
+                            password = "C3-84-CB-DA-11-5B-68-D0-F5-67-51-73-EE-13-C6-3D",
+                            passwordKey = "EQ987C6cKn",
                             userName = "admin"
                         });
                 });

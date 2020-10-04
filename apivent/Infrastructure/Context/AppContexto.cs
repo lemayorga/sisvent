@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using apivent.Infrastructure.Models;
+using apivent.Infrastructure.Models.Security;
+using apivent.Infrastructure.Seed;
 
 namespace apivent.Infrastructure.Context
 {
@@ -8,15 +10,10 @@ namespace apivent.Infrastructure.Context
         public AppContexto() : base() { }
         public AppContexto(DbContextOptions options) : base(options) { }        
         public virtual DbSet<Persona> Personas { get; set; }
-
+       public virtual DbSet<Usuario> Usuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Persona>(entidad =>
-            {
-                entidad.Property(propiedad => propiedad.nombres).HasColumnType("varchar(100)").IsRequired();
-                entidad.Property(propiedad => propiedad.apellidos).HasColumnType("varchar(100)").IsRequired();
-                entidad.Property(propiedad => propiedad.tipoPersona).HasColumnType("char(1)").IsRequired().HasDefaultValue("N");
-            });
+             SeedInitialize.Seed(modelBuilder);
         }
     }
 }

@@ -4,9 +4,9 @@ using apivent.Application.DTOs.Security;
 
 namespace apivent.Infrastructure.Models.Security
 {
-    public class Usuarios
+    public class Usuario
     {
-        public int userId { get; set; }
+        public int usuarioId { get; set; }
         public string userName { get; set; }   
         public string password { get ; set ; }
         public string passwordKey { get; set; }
