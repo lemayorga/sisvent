@@ -251,20 +251,7 @@ export default (function () {
             }));
         
         
-            //Chat Open
-            $('.messages-contact .user a').on('click', function(){
-                $('.tab-chat').addClass('show-chat')
-            });
-        
-            $('.messages-wrapper .return').on('click', function(){
-                $('.tab-chat').removeClass('show-chat')
-            });
-        
-            //select all
-            $('[data-select="checkbox"]').change(function(){
-                var target = $(this).attr('data-target');
-                $(target).prop('checked', $(this).prop("checked"));
-            })
+            
         
             //form-group-default active if input focus
             $(".form-group-default .form-control").focus(function(){
@@ -275,23 +262,7 @@ export default (function () {
         
         // });
         
-        // Input File Image
-        
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-        
-                reader.onload = function (e) {
-                    $(input).parent('.input-file-image').find('.img-upload-preview').attr('src', e.target.result);
-                }
-        
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        
-        $('.input-file-image input[type="file"').change(function () {
-            readURL(this);
-        });
+
         
         // Show Password
         
@@ -341,16 +312,7 @@ export default (function () {
         })
         
         changeContainer();
-        
-        //Input with Floating Label
-        
-        $('.form-floating-label .form-control').keyup(function(){
-            if($(this).val() !== '') {
-                $(this).addClass('filled');
-            } else {
-                $(this).removeClass('filled');
-            }
-        })
+    
         
         
 

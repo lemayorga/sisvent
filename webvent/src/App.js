@@ -5,8 +5,8 @@ import './assets/css/customer.css';
 
 import 'bootstrap';
 import './assets/css/fonts.css';
-import './assets/js/atlantis.js';
-import './assets/js/setting_demo.js';
+// import './assets/js/atlantis.js';
+// import './assets/js/setting_demo.js';
 import 'antd/dist/antd.css';
 
 import React from 'react';	

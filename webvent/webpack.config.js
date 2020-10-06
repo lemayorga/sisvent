@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
 
 // Constant with our paths
@@ -61,7 +62,7 @@ module.exports = {
           use: [
                   {
                     loader: 'file-loader',
-                    options: { name: 'file?name=[name].[ext]', /* outputPath: './' */ }
+                    options: { name: 'file?name=[name].[ext]', }
                   }
               ]
         },    
@@ -71,6 +72,11 @@ module.exports = {
         new HtmlWebPackPlugin({
           template: path.join(paths.Pub, 'index.html'), 
           filename: "index.html"
+        }),
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
         })
     ]
 };

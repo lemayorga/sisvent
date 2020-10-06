@@ -1,7 +1,10 @@
+import React from 'react';
 
-    import React from 'react';
+import * as $ from 'jquery';
+import '../assets/js/atlantis.js';
+import '../assets/js/setting_demo.js';
 
-    import Footer from './Footer';
+import Footer from './Footer';
 import Header from './Header';
 import SideBar from './SideBar';
 import CustomTheme from './CustomTheme';
