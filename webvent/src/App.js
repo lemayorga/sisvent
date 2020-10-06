@@ -27,3 +27,5 @@ function App() {
 
 export default App;
 
+// https://muffinman.io/webpack-babel-react-revisited/
+// https://www.valentinog.com/blog/babel/
