@@ -5,8 +5,8 @@ import './assets/css/customer.css';
 
 import 'bootstrap';
 import './assets/css/fonts.css';
-import './assets/js/atlantis.js';
-import './assets/js/setting_demo.js';
+// import './assets/js/atlantis.js';
+// import './assets/js/setting_demo.js';
 import 'antd/dist/antd.css';
 
 import React from 'react';	
@@ -27,3 +27,5 @@ function App() {
 
 export default App;
 
+// https://muffinman.io/webpack-babel-react-revisited/
+// https://www.valentinog.com/blog/babel/

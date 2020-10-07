@@ -18,6 +18,7 @@ export default (function () {
     }
 
 	window.addEventListener('load', () => {
+        
         $(window).resize(function() {
             $(window).width(); 
         });
@@ -88,25 +89,31 @@ export default (function () {
         }
         
         
-        var toggle_customSidebar = false,
-        custom_open = 0;
-        
-        if(!toggle_customSidebar) {
-            var toggle = $('.custom-template .custom-toggle');
-        
-            toggle.on('click', (function(){
-                if (custom_open == 1){
-                    $('.custom-template').removeClass('open');
-                    toggle.removeClass('toggled');
-                    custom_open = 0;
-                }  else {
-                    $('.custom-template').addClass('open');
-                    toggle.addClass('toggled');
-                    custom_open = 1;
+            var toggle_customSidebar = false,
+            custom_open = 0;
+            
+            if(!toggle_customSidebar) {
+                var toggle = $('.custom-template .custom-toggle');
+            
+
+                //  console.log(toggle);
+                toggle.on('click', (function(){
+
+                    console.log('click en toggle');
+                    
+                    if (custom_open == 1){
+                        $('.custom-template').removeClass('open');
+                        toggle.removeClass('toggled');
+                        custom_open = 0;
+                    }  else {
+                        $('.custom-template').addClass('open');
+                        toggle.addClass('toggled');
+                        custom_open = 1;
+                    }
                 }
-            })
-            );
-            toggle_customSidebar = true;
+                )
+                );
+                toggle_customSidebar = true;
         }
 
 
