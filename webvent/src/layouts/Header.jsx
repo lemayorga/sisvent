@@ -1,5 +1,5 @@
 import React from 'react';
-// import Toggle from './main/Toggle';
+import SidenavToggler from './main/SidenavToggler';
 
 
 export default function Header(){
@@ -7,7 +7,7 @@ export default function Header(){
 
 		<div className="main-header">
 
-			<div className="logo-header" data-background-color="blue">
+			{/* <div className="logo-header" data-background-color="blue">
 				<a href="index.html" className="logo">
 					<img src="./assets/img/logo.svg" alt="navbar brand" className="navbar-brand" />		
 				</a>
@@ -24,8 +24,8 @@ export default function Header(){
 						<i className="icon-menu"></i>
 					</button>
 				</div>
-				{/* <Toggle /> */}
-			</div>
+			</div> */}
+			<SidenavToggler />
 
 
 			<nav className="navbar navbar-header navbar-expand-lg" data-background-color="blue2">				

@@ -11,6 +11,7 @@ const paths = {
   };
 
 module.exports = {
+    mode: "development",
     entry: path.join(paths.SRC, 'index.js'),
     output: {
         path: paths.DIST,
