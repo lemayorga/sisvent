@@ -31,30 +31,6 @@ function SidenavToggler(){
             OnClickSidenavToggler
         }
 
-        // if(!quick_sidebar_open) {
-    
-        //     const wrapper = document.getElementsByClassName("wrapper")[0]; 
-        //     wrapper.addEventListener('mouseup', function(e){
-                
-        //          const quick_sidebar = document.getElementsByClassName("quick-sidebar")[0]; 
-
-        //          if(e.target.className != quick_sidebar.getAttribute('class') && !document.querySelectorAll('.quick-sidebar > .page-inner').length)
-        //          {
-        //             const html = document.getElementsByTagName("html")[0];
-        //             const quick_sidebar_toggler = document.getElementsByClassName("quick-sidebar-toggler")[0];
-        //             const quick_sidebar_overlay = document.getElementsByClassName("quick-sidebar-overlay")[0];
-
-        //             html.classList.remove('quick_sidebar_open');
-        //             quick_sidebar_toggler.classList.remove('toggled');
-        //             quick_sidebar_overlay.parentNode.removeChild(quick_sidebar_overlay);
-        //             setQuick_sidebar_open(0);
-        //          }
-        //     });
-
-        //     setQuick_sidebar_open(true);
-        // }
-    
-
         if (!minimize_sidebar) {
             const minibutton = document.getElementsByClassName("toggle-sidebar")[0]; 
             const wrapper = document.getElementsByClassName("wrapper")[0];
@@ -121,6 +97,26 @@ function SidenavToggler(){
         });
     }
 
+
+    function  OnClickTopbarToggler(){
+        const topbar_toggler = document.getElementsByClassName("topbar-toggler")[0];
+        if(topbar_toggler != undefined){
+            const html = document.getElementsByTagName("html")[0];
+
+            if (topbar_open == 1) {
+                html.classList.remove('topbar_open');
+                topbar_toggler.classList.remove('toggled')
+                setTopbar_open(0);
+
+			} else {
+                
+                html.classList.add('topbar_open');
+                topbar_toggler.classList.add('toggled')
+                setTopbar_open(1);
+			}
+        }
+    }
+
     return(
     <div className="logo-header" data-background-color="blue">
         <a href="index.html" className="logo">
@@ -132,7 +128,7 @@ function SidenavToggler(){
                 <i className="icon-menu"></i>
             </span>
         </button>
-        <button className="topbar-toggler more">
+        <button className="topbar-toggler more" onClick={OnClickTopbarToggler}>
             <i className="icon-options-vertical"></i>
         </button>
         <div className="nav-toggle">

@@ -1,7 +1,30 @@
-import React from 'react';
+import React,{ useState } from 'react';
+
 
 export default function CustomTheme(){
-    return(
+	const [custom_open, setCustom_open] = useState(0);
+  
+	function OnClickCustomToggle(){
+		const custom_toggle = document.querySelector(".custom-template > .custom-toggle"); 
+		const custom_template = document.getElementsByClassName("custom-template")[0]; 
+
+		if(custom_template != undefined && custom_toggle != undefined){
+			if (custom_open == 1){
+				custom_template.classList.remove('open');
+				custom_toggle.classList.remove('toggled');
+				setCustom_open(0);
+
+			}  else {
+				custom_template.classList.add('open');
+				custom_toggle.classList.add('toggled');
+				setCustom_open(1);
+
+			}	
+		}
+	}
+
+
+	return(
 		<div className="custom-template"> 
 			<div className="title">Settings</div>
 			<div className="custom-content">
@@ -67,7 +90,7 @@ export default function CustomTheme(){
 					</div>
 				</div>
 			</div>
-			<div className="custom-toggle">
+			<div className="custom-toggle"   onClick={OnClickCustomToggle}>
 				<i className="flaticon-settings"></i>
 			</div>
         </div>
