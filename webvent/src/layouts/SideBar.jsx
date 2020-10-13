@@ -30,11 +30,9 @@ function OnHoverSideBar(esHover){
 				{/* <div className="sidebar sidebar-style-2">	
 			<div className="sidebar-wrapper scrollbar scrollbar-inner"> */}
 
-			  <div className="sidebar-wrapper" style={{ overflowY : 'hidden' }}>
+			<div className="sidebar-wrapper" style={{ overflowY : 'hidden' }}>
 				  
-			  <Scrollbars   style={{ height: 'calc(100vh - 75px)' }}>
-
-
+			  <Scrollbars   style={{ height: 'calc(100vh - 75px)' }} autoHide={true}>
 				<div className="sidebar-content">
 					<div className="user">
 						<div className="avatar-sm float-left mr-2">
@@ -74,8 +72,8 @@ function OnHoverSideBar(esHover){
 					<MainMenu />
 				</div>
 
-				</Scrollbars>
-				</div>
+			  </Scrollbars>
+			</div>
 			{/* </div> */}
 		</div>
 
