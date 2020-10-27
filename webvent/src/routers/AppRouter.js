@@ -28,8 +28,8 @@ import PageNotFoundPage from '../pages/status/PageNotFoundPage';
           <Route>
             <LayoutMain>
               <Switch>
-                {/* <PublicRoute restricted={false} component={HomePage} path={routes.home} exact /> */}
-                <PrivateRoute component={HomePage} path={routes.home} exact />
+                <PublicRoute restricted={false} component={HomePage} path={routes.home} exact />
+                {/* <PrivateRoute component={HomePage} path={routes.home} exact /> */}
                 <PrivateRoute component={Dashboard} path={routes.dashboard}  /> 
                 <PrivateRoute component={PersonasPage} path={routes.personas} /> 
               </Switch>

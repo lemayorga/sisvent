@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as $ from 'jquery';
-import '../assets/js/atlantis.js';
-import '../assets/js/setting_demo.js';
+// // import * as $ from 'jquery';
+// import '../assets/js/atlantis.js';
+// import '../assets/js/setting_demo.js';
 
 import Footer from './Footer';
 import Header from './Header';

@@ -1,11 +1,38 @@
 import React from 'react'; 
 import MainMenu from './menu/MainMenu';
 
+import { Scrollbars } from 'react-custom-scrollbars';
+
 export default function SideBar(){
 
+
+function OnHoverSideBar(esHover){
+
+	const wrapper = document.getElementsByClassName("wrapper")[0]; 
+
+	if(wrapper != undefined){
+		if(esHover){
+			if(wrapper.classList.contains('sidebar_minimize'))
+				wrapper.classList.add('sidebar_minimize_hover');
+		}else{
+			if(wrapper.classList.contains('sidebar_minimize'))
+				wrapper.classList.remove('sidebar_minimize_hover');
+		}
+	}
+}
+
+
     return(
-		<div className="sidebar sidebar-style-2">			
-			<div className="sidebar-wrapper scrollbar scrollbar-inner">
+		<div className="sidebar sidebar-style-2"
+		onMouseEnter={() => OnHoverSideBar(true)}
+        onMouseLeave={() => OnHoverSideBar(false)}
+		>	
+				{/* <div className="sidebar sidebar-style-2">	
+			<div className="sidebar-wrapper scrollbar scrollbar-inner"> */}
+
+			<div className="sidebar-wrapper" style={{ overflowY : 'hidden' }}>
+				  
+			  <Scrollbars   style={{ height: 'calc(100vh - 75px)' }} autoHide={true}>
 				<div className="sidebar-content">
 					<div className="user">
 						<div className="avatar-sm float-left mr-2">
@@ -44,7 +71,10 @@ export default function SideBar(){
 					</div>
 					<MainMenu />
 				</div>
+
+			  </Scrollbars>
 			</div>
+			{/* </div> */}
 		</div>
 
     );

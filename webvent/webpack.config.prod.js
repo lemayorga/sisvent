@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 
@@ -11,9 +12,7 @@ const paths = {
   };
 
 module.exports = {
-    mode: "development",
-    devtool: 'source-map',
-    // devtool: 'inline-source-map',
+    mode: "production",
     entry: path.join(paths.SRC, 'index.js'),
     output: {
         path: paths.DIST,
@@ -72,6 +71,7 @@ module.exports = {
       ]
     },
     plugins: [
+       new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
           template: path.join(paths.Pub, 'index.html'), 
           filename: "index.html"
