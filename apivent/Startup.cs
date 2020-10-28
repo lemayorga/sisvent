@@ -58,9 +58,21 @@ namespace apivent
 
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
-                builder.AllowAnyMethod()
+                builder
+                       .WithOrigins("http://localhost:8080")                
+                        .SetIsOriginAllowedToAllowWildcardSubdomains()                       
+                        .AllowAnyMethod()
                        .AllowAnyHeader()
-                       .WithOrigins("http://localhost:3000");
+                       ;
+
+//    "http://localhost:3000",
+                // options.AddDefaultPolicy(
+                //         builder =>
+                //         {
+                //             builder.WithOrigins("http://localhost:3000",
+                //                      "http://localhost:8080/");
+                //         });     
+
             }));
 
             services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
@@ -106,6 +118,8 @@ namespace apivent
             {
                 endpoints.MapControllers();
             });
+
+            //app.UseEndpoints(endpoints => { endpoints.MapControllers().RequireCors(MyAllowSpecificOrigins); });
         }
     }
 }

@@ -129,3 +129,10 @@ F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.pd
 F:\cursos_practicas\proyectos\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.genruntimeconfig.cache
 F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Properties\launchSettings copy.json
 F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Properties\launchSettings copy.json
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.MvcApplicationPartsAssemblyInfo.cs

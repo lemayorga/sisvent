@@ -34,7 +34,7 @@ namespace apivent.Controllers.Security
         {
             UsuarioInfo userInfo = await Task.FromResult(servicesSecurity.Autentication(usuarioLogin.Usuario, usuarioLogin.Password));
             if (userInfo != null)
-                return Ok(new { token = this.servicesToken.GenerarTokenJWT(this.configuration,userInfo) });
+                return Ok(new { userName = usuarioLogin.Usuario ,token = this.servicesToken.GenerarTokenJWT(this.configuration,userInfo) });
 
             return Unauthorized();
         }
