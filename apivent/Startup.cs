@@ -22,6 +22,8 @@ using System.Text;
 using apivent.Application.Interfaces.Securiry;
 using apivent.Services.Security;
 
+using Newtonsoft.Json;
+
 namespace apivent
 {
     public class Startup
@@ -65,7 +67,9 @@ namespace apivent
             }));
 
             services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexionexpress")));
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });

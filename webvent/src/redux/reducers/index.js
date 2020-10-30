@@ -1,9 +1,11 @@
 
 import { combineReducers } from 'redux';
 import personasReducer from '../reducers/personas/';
+import seguridadReducer from './segurida';
 
 const rootReducer = combineReducers({
-    personasStore : personasReducer
+     personasReducer,
+     seguridadReducer
 });
 
 export default rootReducer;

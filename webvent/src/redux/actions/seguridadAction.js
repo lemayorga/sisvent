@@ -12,5 +12,13 @@ export function dispathLogear(response){ return { type: LOGEAR, data : response.
  *  ACCIONES
  ***************************************************************/
 export const Logear = (data, callbackSucess,callbackError) => {
-    return dispatch => Post({url: '/Login', parameters: data,callbackSucess: callbackSucess, callbackError : callbackError })
+    return dispatch => {
+       return Post(
+        {   
+            url: '/Login', 
+            parameters: data,
+            callbackSucess: callbackSucess, 
+            callbackError : callbackError 
+        })
+    } 
 }

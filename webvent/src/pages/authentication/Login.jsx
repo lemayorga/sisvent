@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch  } from 'react-redux';
 import { Form, Input, Button, Checkbox, Modal } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
- import { Logear } from '../../redux/actions/seguridadAction.js';
+import { Logear } from '../../redux/actions/seguridadAction.js';
 
 import { useHistory, useLocation }  from "react-router-dom";
 import fakeAuth  from '../../utils/fakeAuth';

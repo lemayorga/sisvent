@@ -1,4 +1,4 @@
-import * as type from '../actions/seguridaAction';
+import * as type from '../actions/seguridadAction';
 
 const estadoInicial = { 
  autenticacion:{}

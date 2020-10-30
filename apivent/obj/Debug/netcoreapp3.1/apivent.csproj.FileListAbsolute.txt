@@ -136,3 +136,6 @@ C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\juan\Documents\proyectos\github\sisvent\apivent\obj\Debug\netcoreapp3.1\apivent.MvcApplicationPartsAssemblyInfo.cs
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\cursos_practicas\proyectos\sisvent\apivent\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

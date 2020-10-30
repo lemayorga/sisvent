@@ -21,8 +21,13 @@ const Get = ({url, parameters = {} , callbackSucess, callbackError }) => {
 
 const Post = ({url, parameters = {} , callbackSucess,callbackError }) => {    
     return axios_.post(url, parameters)
-        .then(response => {  if (typeof callbackSucess === 'function') { callbackSucess(response); } })
-        .catch((error) => {  if (typeof callbackError === 'function') { callbackError(error); } else { throw(error); } });
+        .then(response => { 
+             if (typeof callbackSucess === 'function') { callbackSucess(response); } 
+            })
+        .catch((error) => { 
+             if (typeof callbackError === 'function') { callbackError(error); } 
+             else { throw(error); } 
+        });
 }    
 
 const Delete = ({url, parameters = {} , callbackSucess,callbackError }) => {    
