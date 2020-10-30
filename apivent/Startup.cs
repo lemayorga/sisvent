@@ -58,34 +58,20 @@ namespace apivent
 
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
-                builder
-                       .WithOrigins("http://localhost:8080")                
+                builder.WithOrigins("http://localhost:8080")                
                         .SetIsOriginAllowedToAllowWildcardSubdomains()                       
                         .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       ;
-
-//    "http://localhost:3000",
-                // options.AddDefaultPolicy(
-                //         builder =>
-                //         {
-                //             builder.WithOrigins("http://localhost:3000",
-                //                      "http://localhost:8080/");
-                //         });     
-
+                        .AllowAnyHeader();    
             }));
 
-            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
+            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexionexpress")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
-            services.AddScoped<IPersonaService, PersonaServices>();
-            services.AddScoped<ISecurityService, SecurityServices>();
-            services.AddScoped<ISecurityTokenService, SecurityTokenServices>();
+            services.AddConfig(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -118,8 +104,6 @@ namespace apivent
             {
                 endpoints.MapControllers();
             });
-
-            //app.UseEndpoints(endpoints => { endpoints.MapControllers().RequireCors(MyAllowSpecificOrigins); });
         }
     }
 }
