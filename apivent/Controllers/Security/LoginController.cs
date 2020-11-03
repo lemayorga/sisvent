@@ -28,21 +28,11 @@ namespace apivent.Controllers.Security
             this.servicesToken = servicesToken;
         }
 
-        // [HttpPost]
-        // [AllowAnonymous]
-        // public async Task<IActionResult> Login(UsuarioLogin usuarioLogin)
-        // {
-        //     UsuarioInfo userInfo = await Task.FromResult(servicesSecurity.Autentication(usuarioLogin.Usuario, usuarioLogin.Password));
-        //     if (userInfo != null)
-        //         return Ok(new { userName = usuarioLogin.Usuario ,token = this.servicesToken.GenerarTokenJWT(this.configuration,userInfo) });
-
-        //     return Unauthorized();
-        // }
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Login(UsuarioLogin usuarioLogin)
+        public async Task<IActionResult> Login(UsuarioLogin usuarioLogin)
         {
-            UsuarioInfo userInfo = servicesSecurity.Autentication(usuarioLogin.Usuario, usuarioLogin.Password);
+            UsuarioInfo userInfo = await Task.FromResult(servicesSecurity.Autentication(usuarioLogin.Usuario, usuarioLogin.Password));
             if (userInfo != null)
                 return Ok(new { userName = usuarioLogin.Usuario ,token = this.servicesToken.GenerarTokenJWT(this.configuration,userInfo) });
 

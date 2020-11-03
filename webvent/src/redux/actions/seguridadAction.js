@@ -22,3 +22,4 @@ export const Logear = (data, callbackSucess,callbackError) => {
         })
     } 
 }
+

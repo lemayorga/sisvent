@@ -7,7 +7,7 @@ import { Logear } from '../../redux/actions/seguridadAction.js';
 import { useHistory, useLocation }  from "react-router-dom";
 import fakeAuth  from '../../utils/fakeAuth';
 
-
+import { Post,axios_ } from '../../redux/config';
 
 
 const Login = (props) => {
@@ -20,20 +20,37 @@ const Login = (props) => {
 
 
   const onFinish = (values) => {  
-    dispatch(Logear(values,
-      response => {
-        console.log(response)
-        fakeAuth.authenticate(() => {
-          history.replace(from);
-        });
-      },
-      error => {
-        console.error(error)
-        Modal.error({ title: 'Ocurrio un error',   content: error.message });
-      }
-    ))
-  };
+    // dispatch(Logear(values,
+    //   response => {
+    //     console.log(response)
+    //     fakeAuth.authenticate(() => {
+    //       history.replace(from);
+    //     });
+    //   },
+    //   error => {
+    //     console.error(error)
+    //     Modal.error({ title: 'Ocurrio un error',   content: error.message });
+    //   }
+    // ))
+ 
+     Login(values);
 
+    
+  };
+  const Login =  async (values) =>{
+    const resultado = await axios_.post('/Login', values)
+         .then(response => {
+          console.log(response)
+          return response;
+         })
+         .catch(error => {
+          console.log(error)
+          return error;
+         })
+
+         console.log(resultado)
+   
+  } 
 
   return (
 

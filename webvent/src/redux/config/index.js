@@ -13,38 +13,35 @@ const axios_ = axios.create({
 
 export default axios_;
 
-const Get = ({url, parameters = {} , callbackSucess, callbackError }) => {   
+const Get = ({url, parameters = {} , callbackSucess = null, callbackError = null }) => {   
     return axios_.get(url, parameters)
         .then(response => {  if (typeof callbackSucess === 'function') { callbackSucess(response); }  })
         .catch((error) => { if (typeof callbackError === 'function') { callbackError(error); } else { throw(error); }  });
 }
 
-const Post = ({url, parameters = {} , callbackSucess,callbackError }) => {    
+const Post = ({url, parameters = {} , callbackSucess = null,callbackError = null }) => {    
     return axios_.post(url, parameters)
-        .then(response => { 
-             if (typeof callbackSucess === 'function') { callbackSucess(response); } 
-            })
-        .catch((error) => { 
-             if (typeof callbackError === 'function') { callbackError(error); } 
-             else { throw(error); } 
-        });
+        .then(response => {  if (typeof callbackSucess === 'function') { callbackSucess(response); }  })
+        .catch((error) => {  if (typeof callbackError === 'function') { callbackError(error); }  else { throw(error); }  });
 }    
 
-const Delete = ({url, parameters = {} , callbackSucess,callbackError }) => {    
+const Delete = ({url, parameters = {} , callbackSucess = null,callbackError = null }) => {    
     return axios_.delete(url, parameters)
         .then(response => {  if (typeof callbackSucess === 'function') { callbackSucess(response); }  })
         .catch((error) => {  if (typeof callbackError === 'function') { callbackError(error); } else { throw(error); } });
 }
 
-const Put = ({url, parameters = {} , callbackSucess,callbackError }) => {    
+const Put = ({url, parameters = {} , callbackSucess = null,callbackError  = null}) => {    
     return axios_.put(url, parameters)
         .then(response => {   if (typeof callbackSucess === 'function') { callbackSucess(response); } })
         .catch((error) => {  if (typeof callbackError === 'function') { callbackError(error); } else { throw(error); } });
 }
 
+   
 export  {
     Get,
     Post,
     Delete,
-    Put
+    Put,
+    axios_
 };
