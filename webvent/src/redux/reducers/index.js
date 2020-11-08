@@ -1,6 +1,6 @@
 
 import { combineReducers } from 'redux';
-import personasReducer from '../reducers/personas/';
+import personasReducer from './personas';
 import seguridadReducer from './segurida';
 
 const rootReducer = combineReducers({

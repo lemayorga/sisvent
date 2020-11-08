@@ -2,13 +2,10 @@ import React from 'react';
 import { useDispatch  } from 'react-redux';
 import { Form, Input, Button, Checkbox, Modal } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Logear } from '../../redux/actions/seguridadAction.js';
+import { Logear , LogeoFallido , LogeoExitos } from '../../redux/actions/seguridadAction.js';
 
 import { useHistory, useLocation }  from "react-router-dom";
 import fakeAuth  from '../../utils/fakeAuth';
-
-import { Post,axios_ } from '../../redux/config';
-
 
 const Login = (props) => {
     
@@ -19,38 +16,81 @@ const Login = (props) => {
   const dispatch = useDispatch();
 
 
+
+  // const onFinish = (values) => {  
+  //   dispatch(Logear(values,
+  //     (response) => {
+  //       console.log(response)
+        
+  //       if(!response.data){
+  //         if(response.name == 'Error'){
+  //           Modal.error({ title: 'Credenciales incorrectas', content: ''});
+  //           return;
+  //         }  
+  //       }
+  //       const modal = Modal.success({ title: 'Credenciales correctas', content: ''});
+
+  //       setTimeout(() => {
+  //         modal.destroy();
+  //       }, 5 * 1000);
+       
+  //       fakeAuth.authenticate(() => {
+  //         history.replace(from);
+  //       });
+  //     },
+  //   (error) => {
+  //       console.log(error)
+  //       if(error.response)
+  //         Modal.info({ title: error.response.data.mensaje,   content: 'Intente nuevamente.' });
+  //       else  
+  //         Modal.error({ title: 'Ocurrio un error',   content: error.message });
+  //     }
+  //   ))
+  // };
+
   const onFinish = (values) => {  
-    // dispatch(Logear(values,
-    //   response => {
-    //     console.log(response)
-    //     fakeAuth.authenticate(() => {
-    //       history.replace(from);
-    //     });
-    //   },
-    //   error => {
-    //     console.error(error)
-    //     Modal.error({ title: 'Ocurrio un error',   content: error.message });
-    //   }
-    // ))
- 
-     Login(values);
-
     
-  };
-  const Login =  async (values) =>{
-    const resultado = await axios_.post('/Login', values)
-         .then(response => {
-          console.log(response)
-          return response;
-         })
-         .catch(error => {
-          console.log(error)
-          return error;
-         })
+  
+      Logear(values)
+      .then(response => {
+        console.log(response)
 
-         console.log(resultado)
-   
-  } 
+        if(!response.data){
+          if(response.name == 'Error'){
+            Modal.error({ title: 'Credenciales incorrectas', content: ''});
+            return;
+          }  
+        }
+        const modal = Modal.success({ title: 'Credenciales correctas', content: ''});
+
+        setTimeout(() => {
+          modal.destroy();
+        }, 5 * 1000);
+       
+        fakeAuth.authenticate(response.data,() => {
+          history.replace(from);
+        });
+        dispatch(LogeoExitos(response.data))
+
+      }).catch(error =>{
+        console.log(error)
+
+       
+        if(error.response)
+          Modal.info({ title: error.response.data.mensaje,   content: 'Intente nuevamente.' });
+        else  
+          Modal.error({ title: 'Ocurrio un error',   content: error.message });
+        
+          dispatch(LogeoFallido())
+      })
+
+  };
+
+
+
+
+
+
 
   return (
 

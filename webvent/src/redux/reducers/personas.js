@@ -1,4 +1,4 @@
-import  * as type from '../../actions/personasAction'
+import  * as type from '../actions/personasAction'
 
 const initialState = {
     personas:[],

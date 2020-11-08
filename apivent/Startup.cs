@@ -60,8 +60,8 @@ namespace apivent
 
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
-                builder.WithOrigins("http://localhost:8080")                
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()                       
+                builder.WithOrigins("http://localhost:8080")    
+                        .AllowAnyOrigin()                          
                         .AllowAnyMethod()
                         .AllowAnyHeader();    
             }));

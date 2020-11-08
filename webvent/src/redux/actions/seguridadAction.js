@@ -1,25 +1,22 @@
-import {  Post } from '../config';
+import {  post } from '../config';
 
 
 /****************************************************************
  *  CONSTANTES 
  ***************************************************************/
-export const LOGEAR = 'LOGEAR';
+export const LOGEAR_EXITOSO = 'LOGEAR_EXITOSO';
+export const LOGEAR_FALLIDO = 'LOGEAR_FALLIDO';
 
-export function dispathLogear(response){ return { type: LOGEAR, data : response.data }; }
+export function LogeoExitos(response){ return { type: LOGEAR_EXITOSO, data : response.data }; }
+export function LogeoFallido(){ return { type: LOGEAR_FALLIDO }; }
 
 /****************************************************************
  *  ACCIONES
  ***************************************************************/
-export const Logear = (data, callbackSucess,callbackError) => {
-    return dispatch => {
-       return Post(
-        {   
-            url: '/Login', 
-            parameters: data,
-            callbackSucess: callbackSucess, 
-            callbackError : callbackError 
-        })
-    } 
-}
+
+export const Logear = (datos)  => {
+        return post('/Login/',datos)
+};
+         
+    
 

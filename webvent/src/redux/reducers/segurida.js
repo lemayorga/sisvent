@@ -6,10 +6,10 @@ const estadoInicial = {
 
 export default function seguridadReducer(state = estadoInicial,action){
     switch (action.type) {
-        case type.LOGEAR:
+        case type.LOGEAR_EXITOSO:
                 return {
                     ...state,
-                    autenticacion: action.data
+                    autenticacion: action
                 }
             break;    
         default:

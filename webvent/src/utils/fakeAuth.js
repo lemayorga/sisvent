@@ -1,13 +1,22 @@
 const fakeAuth = {
     isAuthenticated: false,
-    authenticate(cb) {
+    authenticate(data,function_callback) {
       fakeAuth.isAuthenticated = true;
-      setTimeout(cb, 100); // fake async
+      localStorage.setItem("user", JSON.stringify(data));
+
+      if (typeof function_callback === 'function') 
+        setTimeout(function_callback, 100); 
     },
-    signout(cb) {
+    signout(function_callback) {
       fakeAuth.isAuthenticated = false;
-      setTimeout(cb, 100);
-    }
+      
+      if(localStorage.getItem("user"))
+         localStorage.removeItem("user");
+
+      if (typeof function_callback === 'function') 
+        setTimeout(function_callback, 100); 
+    },
+    getToken(){ return localStorage.getItem("user") || null }
   };
   
 
