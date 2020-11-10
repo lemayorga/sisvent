@@ -1,13 +1,10 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { useDispatch  } from 'react-redux';
+import { Form, Input, Button, Checkbox, Modal } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
- 
+import { Logear , LogeoFallido , LogeoExitos } from '../../redux/actions/seguridadAction.js';
 
-
-import {
-  useHistory,
-  useLocation
-} from "react-router-dom";
+import { useHistory, useLocation }  from "react-router-dom";
 import fakeAuth  from '../../utils/fakeAuth';
 
 const Login = (props) => {
@@ -16,16 +13,83 @@ const Login = (props) => {
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/" } };
+  const dispatch = useDispatch();
 
 
 
-  const onFinish = (values) => {
+  // const onFinish = (values) => {  
+  //   dispatch(Logear(values,
+  //     (response) => {
+  //       console.log(response)
+        
+  //       if(!response.data){
+  //         if(response.name == 'Error'){
+  //           Modal.error({ title: 'Credenciales incorrectas', content: ''});
+  //           return;
+  //         }  
+  //       }
+  //       const modal = Modal.success({ title: 'Credenciales correctas', content: ''});
+
+  //       setTimeout(() => {
+  //         modal.destroy();
+  //       }, 5 * 1000);
+       
+  //       fakeAuth.authenticate(() => {
+  //         history.replace(from);
+  //       });
+  //     },
+  //   (error) => {
+  //       console.log(error)
+  //       if(error.response)
+  //         Modal.info({ title: error.response.data.mensaje,   content: 'Intente nuevamente.' });
+  //       else  
+  //         Modal.error({ title: 'Ocurrio un error',   content: error.message });
+  //     }
+  //   ))
+  // };
+
+  const onFinish = (values) => {  
     
-    console.log('Received values of form: ', values);
-    fakeAuth.authenticate(() => {
-      history.replace(from);
-    });
+  
+      Logear(values)
+      .then(response => {
+        console.log(response)
+
+        if(!response.data){
+          if(response.name == 'Error'){
+            Modal.error({ title: 'Credenciales incorrectas', content: ''});
+            return;
+          }  
+        }
+        const modal = Modal.success({ title: 'Credenciales correctas', content: ''});
+
+        setTimeout(() => {
+          modal.destroy();
+        }, 5 * 1000);
+       
+        fakeAuth.authenticate(response.data,() => {
+          history.replace(from);
+        });
+        dispatch(LogeoExitos(response.data))
+
+      }).catch(error =>{
+        console.log(error)
+
+       
+        if(error.response)
+          Modal.info({ title: error.response.data.mensaje,   content: 'Intente nuevamente.' });
+        else  
+          Modal.error({ title: 'Ocurrio un error',   content: error.message });
+        
+          dispatch(LogeoFallido())
+      })
+
   };
+
+
+
+
+
 
 
   return (
@@ -43,7 +107,7 @@ const Login = (props) => {
       onFinish={onFinish}
     >
       <Form.Item
-        name="username"
+        name="usuario"
         rules={[
           {
             required: true,
@@ -71,13 +135,11 @@ const Login = (props) => {
         />
       </Form.Item>
       <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
+        {/* <Form.Item name="" valuePropName="checked" noStyle> */}
+        <Form.Item  valuePropName="checked" noStyle>
           <Checkbox>Recordar</Checkbox>
         </Form.Item>
-
-        <a className="login-form-forgot" href="">
-          Olvido su contraseña
-        </a>
+        <a className="login-form-forgot" href="">Olvido su contraseña </a>
       </Form.Item>
 
       <Form.Item>

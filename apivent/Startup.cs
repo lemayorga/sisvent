@@ -22,6 +22,8 @@ using System.Text;
 using apivent.Application.Interfaces.Securiry;
 using apivent.Services.Security;
 
+using Newtonsoft.Json;
+
 namespace apivent
 {
     public class Startup
@@ -58,22 +60,22 @@ namespace apivent
 
             services.AddCors(options => options.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
-                builder.AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .WithOrigins("http://localhost:3000");
+                builder.WithOrigins("http://localhost:8080")    
+                        .AllowAnyOrigin()                          
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();    
             }));
 
-            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
-            services.AddControllers();
+            services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexionexpress")));
+            services.AddControllers()
+                    .AddNewtonsoftJson();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
-            services.AddScoped<IPersonaService, PersonaServices>();
-            services.AddScoped<ISecurityService, SecurityServices>();
-            services.AddScoped<ISecurityTokenService, SecurityTokenServices>();
+            services.AddConfig(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
