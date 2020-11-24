@@ -14,12 +14,12 @@ using Microsoft.EntityFrameworkCore;
 // using apivent.Infrastructure.Context;
 using Swashbuckle.AspNetCore.Swagger;
 using apivent.Application.Interfaces;
-using apivent.Services;
+// using apivent.Services;
 // using apivent.Application.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using apivent.Application.Interfaces.Securiry;
+// using apivent.Application.Interfaces.Securiry;
 using Services.Entity.Contexts;
 using System.Reflection;
 // using apivent.Services.Security;
@@ -32,11 +32,7 @@ namespace apivent
 
         public Startup(IConfiguration configuration) 
         {
-            this.Configuration = configuration;    
-
-     
-   System.Diagnostics.Debug.WriteLine(typeof(AppContexto).Namespace);      
-  System.Diagnostics.Debug.WriteLine(typeof(AppContexto).GetTypeInfo().Assembly.GetName().Name);           
+            this.Configuration = configuration;         
         }
 
         public IConfiguration Configuration { get; }
@@ -68,23 +64,8 @@ namespace apivent
                        .AllowAnyHeader()
                        .WithOrigins("http://localhost:3000");
             }));
-
-            // services.AddDbContext<AppContexto>(opt => 
-            //     opt.UseSqlServer(Configuration.GetConnectionString("BDConexion"),
-            //                     optmig => optmig.MigrationsAssembly("../Services.Entity"))
-            // );
-            string assemblyName = typeof(AppContexto).Namespace;
- var migrationsAssembly = typeof(AppContexto).GetTypeInfo().Assembly.GetName().Name;
-  System.Diagnostics.Debug.WriteLine(typeof(AppContexto).GetTypeInfo().Assembly.GetName().Name);
-  
-    services.AddDbContext<AppContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("BDConexion")
-    ,
-    optionsBuilder  => optionsBuilder.MigrationsAssembly(@"apivent\..\"  + migrationsAssembly )
-    )
-    );
-
-            
-            // services.AddDbContext<AppContexto>(opt => opt.UseSqlServer(Configuration.GetConnectionString("BDConexion")));
+    
+            services.AddDbContext<AppContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("BDConexion")));        
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

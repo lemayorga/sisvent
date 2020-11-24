@@ -1,6 +1,6 @@
 using System;
 
-namespace apivent.Application.DTOs.Security
+namespace Services.Logic.DTOs.Security
 {
     public class UsuarioInfo
     {
