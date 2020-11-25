@@ -65,7 +65,7 @@ namespace apivent
                        .WithOrigins("http://localhost:3000");
             }));
     
-            services.AddDbContext<AppContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("BDConexion")));        
+            services.AddDbContext<AppContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("BDConexionExpress")));        
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
