@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 // using apivent.Infrastructure.Context;
 using Swashbuckle.AspNetCore.Swagger;
-using apivent.Application.Interfaces;
+// using apivent.Application.Interfaces;
 // using apivent.Services;
 // using apivent.Application.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -22,6 +22,9 @@ using System.Text;
 // using apivent.Application.Interfaces.Securiry;
 using Services.Entity.Contexts;
 using System.Reflection;
+using Services.Logic.Repositories;
+using Services.Logic.Services.Common;
+using Services.Logic.Repositories.Interfaces;
 // using apivent.Services.Security;
 
 namespace apivent
@@ -72,7 +75,8 @@ namespace apivent
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
-            // services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericBaseRepository<>));
             // // services.AddScoped<IPersonaService, PersonaServices>();
             // // services.AddScoped<ISecurityService, SecurityServices>();
             // services.AddScoped<ISecurityTokenService, SecurityTokenServices>();

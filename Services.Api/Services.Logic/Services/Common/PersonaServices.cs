@@ -6,7 +6,7 @@ using Services.Logic.Repositories;
 
 namespace Services.Logic.Services.Common
 {
-    public class PersonaServices : GenericBaseRepository<Persona>, IPersonaServices
+    public class PersonaServices : BaseRepository<Persona>, IPersonaServices
     {
         public PersonaServices(AppContexto context) : base(context) { }
         
